@@ -1,0 +1,303 @@
+import type { Question } from "@/types";
+
+/** 第13章 データベース の確認問題(すべて独自作成) */
+export const ch13Questions: Question[] = [
+  // ---- 13-01 データベースの基本 ----
+  {
+    id: "q-13-01-1",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-01",
+    type: "multiple_choice",
+    difficulty: "beginner",
+    prompt: "データベースの説明として、最も適切なものはどれか。",
+    choices: [
+      {
+        id: "a",
+        text: "複数の利用者で共有できるよう、一定の規則に従って整理・蓄積されたデータの集まり",
+      },
+      {
+        id: "b",
+        text: "インターネット上のWebページを閲覧するためのソフトウェア",
+      },
+      { id: "c", text: "文書を作成・編集するためのアプリケーション" },
+      { id: "d", text: "コンピュータ同士を接続するための通信ケーブル" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "データベースは、検索や更新がしやすいように一定の規則で整理して蓄積されたデータの集まりです。複数の利用者やプログラムから共有して使えることが特長です。",
+    incorrectExplanations: {
+      b: "Webページを閲覧するソフトウェアはブラウザです。",
+      c: "文書作成のアプリケーションはワープロソフトです。",
+      d: "通信ケーブルはネットワークの物理的な構成要素です。",
+    },
+    relatedTerms: ["データベース", "データの共有"],
+    isRequired: true,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-01-2",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-01",
+    type: "multiple_choice",
+    difficulty: "basic",
+    prompt: "DBMS(データベース管理システム)の役割として、適切なものはどれか。",
+    choices: [
+      {
+        id: "a",
+        text: "複数の利用者が同時にデータへアクセスしても矛盾が起きないように管理する",
+      },
+      { id: "b", text: "電子メールを自動で送受信する" },
+      { id: "c", text: "画像データを加工・編集する" },
+      { id: "d", text: "コンピュータウイルスを検出して駆除する" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "DBMSは、データベースへの同時アクセスの制御、データの一貫性の維持、障害発生時の回復、アクセス権の管理などを行うソフトウェアです。",
+    incorrectExplanations: {
+      b: "メールの送受信はメールソフトやメールサーバの役割です。",
+      c: "画像の加工は画像編集ソフトの役割です。",
+      d: "ウイルスの検出・駆除はウイルス対策ソフトの役割です。",
+    },
+    relatedTerms: ["DBMS", "同時実行制御", "障害回復"],
+    isRequired: true,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-01-3",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-01",
+    type: "multiple_choice",
+    difficulty: "basic",
+    prompt:
+      "顧客情報を部署ごとに別々の表計算ファイルで管理していたところ、問題が発生した。データベースで一元管理することで解決が期待できる問題はどれか。",
+    choices: [
+      {
+        id: "a",
+        text: "同じ顧客の住所が部署ごとに異なって登録され、どれが正しいか分からなくなる",
+      },
+      { id: "b", text: "パソコンの電源が突然切れる" },
+      { id: "c", text: "プリンタの印刷速度が遅い" },
+      { id: "d", text: "ディスプレイの解像度が低い" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "データを別々のファイルで管理すると、同じデータが重複して登録され、更新のたびに食い違い(矛盾)が生じやすくなります。データベースで一元管理すれば、重複と矛盾を防げます。",
+    incorrectExplanations: {
+      b: "電源の問題はハードウェアや電源設備の問題で、データベースでは解決できません。",
+      c: "印刷速度はプリンタの性能の問題です。",
+      d: "解像度はディスプレイの性能の問題です。",
+    },
+    relatedTerms: ["一元管理", "データの重複", "データの整合性"],
+    isRequired: true,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-01-4",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-01",
+    type: "multiple_choice",
+    difficulty: "basic",
+    prompt: "DBMSが提供する機能に該当しないものはどれか。",
+    choices: [
+      { id: "a", text: "動画をきれいに再生するための画質補正" },
+      { id: "b", text: "利用者ごとにデータへのアクセス権を設定する" },
+      { id: "c", text: "障害が起きたときにデータを回復する" },
+      { id: "d", text: "複数の処理が同時に走っても矛盾が起きないよう制御する" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "画質補正は動画再生ソフトなどの機能です。DBMSの主な機能は、アクセス権の管理(セキュリティ)、障害回復、同時実行制御、データの一貫性維持などです。",
+    incorrectExplanations: {
+      b: "アクセス権の設定はDBMSのセキュリティ機能に含まれます。",
+      c: "障害回復(リカバリ)はDBMSの重要な機能です。",
+      d: "同時実行制御はDBMSの代表的な機能です。",
+    },
+    relatedTerms: ["DBMS", "アクセス権", "リカバリ"],
+    isRequired: false,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-01-5",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-01",
+    type: "multiple_choice",
+    difficulty: "beginner",
+    prompt: "データベースの利用が最も適している場面はどれか。",
+    choices: [
+      {
+        id: "a",
+        text: "通販サイトで、数十万件の商品情報を検索・更新しながら複数の担当者で管理する",
+      },
+      { id: "b", text: "1人で使う買い物メモを1枚だけ作る" },
+      { id: "c", text: "手書きの年賀状を1通書く" },
+      { id: "d", text: "友人と口頭で待ち合わせ時間を決める" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "大量のデータを、複数の人やプログラムが同時に検索・更新する場面でこそ、データベースの一元管理・同時実行制御・高速検索という強みが活きます。",
+    incorrectExplanations: {
+      b: "1人で使う少量のメモにはデータベースは不要です。",
+      c: "手書きの作業にはコンピュータでのデータ管理は関係ありません。",
+      d: "口頭のやり取りにはデータの蓄積・共有がありません。",
+    },
+    relatedTerms: ["データベース", "検索", "共有"],
+    isRequired: false,
+    sourceType: "original",
+    published: true,
+  },
+
+  // ---- 13-02 関係データベース ----
+  {
+    id: "q-13-02-1",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-02",
+    type: "multiple_choice",
+    difficulty: "beginner",
+    prompt:
+      "関係データベースでは、データを表(テーブル)で管理する。表の「横1行分」のデータを何と呼ぶか。",
+    choices: [
+      { id: "a", text: "行(レコード)" },
+      { id: "b", text: "列(フィールド)" },
+      { id: "c", text: "セル" },
+      { id: "d", text: "シート" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "表の横1行分(例: 1人の会員の情報のまとまり)を行(レコード)と呼びます。縦方向の項目(例: 氏名、住所)は列(フィールド)です。",
+    incorrectExplanations: {
+      b: "列(フィールド)は縦方向の1項目を指します。",
+      c: "セルは表計算ソフトで使う1マスの呼び方です。",
+      d: "シートは表計算ソフトの1枚の作業領域の呼び方です。",
+    },
+    relatedTerms: ["関係データベース", "レコード", "フィールド"],
+    isRequired: true,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-02-2",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-02",
+    type: "multiple_choice",
+    difficulty: "basic",
+    prompt: "関係データベースにおける主キーの説明として、適切なものはどれか。",
+    choices: [
+      {
+        id: "a",
+        text: "表の中の行を一意に識別するための列で、重複や空の値は許されない",
+      },
+      { id: "b", text: "表の中で最も文字数が多い列のこと" },
+      { id: "c", text: "他の表を参照するための列のこと" },
+      { id: "d", text: "並べ替えのときにだけ使う一時的な列のこと" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "主キーは各行を一意に識別する列(または列の組み合わせ)です。同じ値の重複や、空の値(NULL)は許されません。例: 会員番号、社員番号。",
+    incorrectExplanations: {
+      b: "文字数は主キーの条件とは関係ありません。",
+      c: "他の表を参照する列は外部キーです。",
+      d: "主キーは一時的なものではなく、表の設計として定義されます。",
+    },
+    relatedTerms: ["主キー", "一意", "NULL"],
+    isRequired: true,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-02-3",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-02",
+    type: "multiple_choice",
+    difficulty: "basic",
+    prompt:
+      "「注文」表に「会員番号」列を設けて「会員」表と関連付けたい。このときの「注文」表の「会員番号」列を何と呼ぶか。",
+    choices: [
+      { id: "a", text: "外部キー" },
+      { id: "b", text: "主キー" },
+      { id: "c", text: "インデックス" },
+      { id: "d", text: "ビュー" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "外部キーは、他の表の主キーを参照して表同士を関連付けるための列です。「注文」表の会員番号は「会員」表の主キーを参照する外部キーです。",
+    incorrectExplanations: {
+      b: "主キーはその表自身の行を一意に識別する列です。「注文」表では注文番号などが主キーになります。",
+      c: "インデックスは検索を高速化するための仕組みです。",
+      d: "ビューは表から必要な部分を取り出した仮想的な表です。",
+    },
+    relatedTerms: ["外部キー", "主キー", "表の関連付け"],
+    isRequired: true,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-02-4",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-02",
+    type: "multiple_choice",
+    difficulty: "applied",
+    prompt:
+      "会員表の主キーとして最も適切な列はどれか。会員表には「会員番号」「氏名」「生年月日」「住所」の列がある。",
+    choices: [
+      { id: "a", text: "会員番号" },
+      { id: "b", text: "氏名" },
+      { id: "c", text: "生年月日" },
+      { id: "d", text: "住所" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "主キーには、値が重複せず、必ず値が入る列を選びます。氏名・生年月日・住所は同じ値の人が存在し得るため不適切で、一意に採番される会員番号が適しています。",
+    incorrectExplanations: {
+      b: "同姓同名の会員がいる可能性があるため、氏名では行を一意に識別できません。",
+      c: "同じ生年月日の会員は多数いる可能性があります。",
+      d: "家族など同じ住所の会員がいる可能性があります。",
+    },
+    relatedTerms: ["主キー", "一意性"],
+    isRequired: false,
+    sourceType: "original",
+    published: true,
+  },
+  {
+    id: "q-13-02-5",
+    courseId: "technology",
+    chapterId: "ch13",
+    lessonId: "13-02",
+    type: "multiple_choice",
+    difficulty: "basic",
+    prompt: "関係データベースの設計で行う「正規化」の主な目的はどれか。",
+    choices: [
+      {
+        id: "a",
+        text: "データの重複をなくし、更新時の矛盾を防ぐこと",
+      },
+      { id: "b", text: "データをすべて暗号化すること" },
+      { id: "c", text: "表の見た目を装飾して読みやすくすること" },
+      { id: "d", text: "データの容量を圧縮して通信を速くすること" },
+    ],
+    correctAnswer: "a",
+    explanation:
+      "正規化は、1つの事実を1か所で管理するように表を分割・整理する作業です。重複がなくなることで、更新漏れによるデータの矛盾を防げます。",
+    incorrectExplanations: {
+      b: "暗号化はセキュリティ対策であり、正規化とは別の概念です。",
+      c: "見た目の装飾は正規化の目的ではありません。",
+      d: "圧縮はデータ容量削減の技術で、正規化とは異なります。",
+    },
+    relatedTerms: ["正規化", "データの重複", "整合性"],
+    isRequired: false,
+    sourceType: "original",
+    published: true,
+  },
+];

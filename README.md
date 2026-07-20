@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IT College
 
-## Getting Started
+ITパスポートの基礎を、Duolingo風の縦型学習パスとクイズで少しずつ身につける学習アプリ(Phase 1 MVP)。
 
-First, run the development server:
+## 特徴
+
+- **縦型学習パス**: レッスンをステージとして順番に進む。必須問題をすべて正解するまで次のステージはロック
+- **学習カード → 確認クイズ**: 短い解説を読んでから4択クイズで理解度を確認。正解・不正解の理由を必ず表示
+- **誤答復習**: 間違えた問題は自動で復習キューへ。章・レッスンで絞り込んで何度でも再挑戦できる
+- **XPと連続学習日数**: 学習の継続を後押しするゲーミフィケーション
+- **localStorage保存**: ログイン不要。進捗はブラウザに保存され、再読み込み後も維持される
+
+## MVP収録範囲(テクノロジ系)
+
+| 章                  | レッスン                                                 |
+| ------------------- | -------------------------------------------------------- |
+| 第11章 ハードウェア | 11-01 コンピュータの種類 / 11-02 コンピュータの5つの役割 |
+| 第13章 データベース | 13-01 データベースの基本 / 13-02 関係データベース        |
+| 第14章 ネットワーク | 14-01 LANとWAN / 14-02 ネットワーク機器                  |
+
+各レッスン: 学習カード4枚・独自作成の4択問題5問(うち必須問題3問)。
+
+## 始め方
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 を開く。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## コマンド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| コマンド           | 内容                                               |
+| ------------------ | -------------------------------------------------- |
+| `npm run dev`      | 開発サーバー起動                                   |
+| `npm run build`    | 本番ビルド                                         |
+| `npm run start`    | 本番サーバー起動                                   |
+| `npm run lint`     | ESLint                                             |
+| `npm run test`     | ユニット/コンポーネントテスト(Vitest)              |
+| `npm run test:e2e` | E2Eテスト(Playwright。内部で build + start を実行) |
+| `npm run format`   | Prettierで整形                                     |
 
-## Learn More
+## 技術構成
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js (App Router) / TypeScript / Tailwind CSS
+- Zod(localStorageデータの検証)/ Lucide React(アイコン)
+- Vitest + React Testing Library / Playwright
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## アーキテクチャ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+src/
+├─ app/           # ページ(App Router)
+├─ components/    # UIコンポーネント
+├─ data/          # 静的教材データ(独自作成)
+├─ domain/        # 純粋関数のドメインロジック(解放判定・復習・XP)
+├─ repositories/  # 進捗保存の抽象化(Phase 2でSupabaseへ差し替え)
+├─ lib/           # 進捗サービス
+├─ hooks/         # Reactフック
+└─ types/         # 共通型定義
+```
 
-## Deploy on Vercel
+進捗の保存は `ProgressRepository` インタフェースで抽象化されており、Phase 2ではlocalStorage実装をSupabase実装へ差し替えるだけでDB同期へ移行できる設計です(`.env.example` 参照)。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ライセンス・教材について
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+学習カード・問題はすべて本アプリのために独自作成したオリジナル教材です。書籍・市販問題集の転載は含まれません。
