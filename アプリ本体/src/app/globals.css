@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Figma「社内業務管理システム UI」の Tokens に対応 */
+@theme {
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-subtle: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-brand: #2563eb;
+  --color-brand-soft: #eff6ff;
+  --color-sidebar: #0f172a;
+  --color-sidebar-item: #1e293b;
+  --color-sidebar-text: #94a3b8;
+  --color-chart-1: #2563eb;
+  --color-chart-2: #cbd5e1;
+
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
