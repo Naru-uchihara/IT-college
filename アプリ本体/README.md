@@ -1,6 +1,6 @@
 # アプリ本体(社内業務管理システム)
 
-売上管理・案件管理・人事管理のWebアプリ。仕様は [`../要件定義書.md`](../要件定義書.md)、デザインは [Figma「社内業務管理システム UI」](https://www.figma.com/design/BFwHzKggANCe7dPWpB2cbJ) を参照。
+売上管理・案件管理・人事管理のWebアプリ。仕様は [`要件定義書.md`](要件定義書.md)、デザインは [Figma「社内業務管理システム UI」](https://www.figma.com/design/BFwHzKggANCe7dPWpB2cbJ) を参照。
 
 ## 起動
 

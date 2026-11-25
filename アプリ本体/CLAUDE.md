@@ -2,6 +2,8 @@
 
 社内業務管理システム(売上管理・案件管理・人事管理)。要件は `要件定義書.md` を参照。
 
+リポジトリ内のファイルはすべて `アプリ本体/` にまとめている(このファイル・要件定義書・`.claude/` スキルを含む)。Claude Code はこのフォルダで開く。
+
 ## Figmaデザイン
 
 - デザインファイル: 「社内業務管理システム UI」 https://www.figma.com/design/BFwHzKggANCe7dPWpB2cbJ
@@ -9,9 +11,9 @@
 - セッションを開始したら、最初にFigma MCPで上記ファイルを確認し、最新のデザインを把握してから作業する
 - Figmaでの作業ルールは `.claude/skills/figma-design/SKILL.md` を参照
 
-## アプリ本体
+## アプリ
 
-アプリのコードは `アプリ本体/` にある(Next.js App Router + TypeScript + Tailwind CSS v4)。コマンドはこのフォルダで実行する。
+Next.js App Router + TypeScript + Tailwind CSS v4。コマンドはこのフォルダで実行する。
 
 - `npm run dev` / `npm run build` / `npm run lint` / `npm test`(Vitest)
 

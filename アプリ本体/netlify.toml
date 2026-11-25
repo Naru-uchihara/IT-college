@@ -1,0 +1,7 @@
+# Netlify 設定。GitHub 連携する場合は Base directory を「アプリ本体」にする
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
